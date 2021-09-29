@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Car {
 
-
     private final Scanner scan = new Scanner(System.in);
 
     private String model;
@@ -13,8 +12,6 @@ public class Car {
     public int currentSpeed;
     private boolean isEngineTurnOn = false;
 
-    public Car() {
-    }
 
     public Car(String model, String color, int maxSpeed) {
         this.model = model;
@@ -65,15 +62,14 @@ public class Car {
     }
 
     public void drive() {
-        if (isEngineTurnOn && currentSpeed != -1) {
+        if (isEngineTurnOn) {
             if (currentSpeed == 0) {
-                System.out.println("Car is stopped");
+                System.out.println("Car is stopped.Please set current speed");
             } else {
                 System.out.println("Car is driving with speed " + currentSpeed);
             }
         } else {
-            String errorMessage = isEngineTurnOn ? "Please set current speed" : "Please start engine";
-            System.out.println(errorMessage);
+            System.out.println("Please start engine");
         }
     }
 }
